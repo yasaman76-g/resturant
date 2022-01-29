@@ -54,15 +54,21 @@ class OrderController extends Controller
 
         if($order->status != 'confirmed' && $request->status == 'confirmed'){
             $confirmed_time = date("Y-m-d H:i:s");
+            //Reduce the number of products
+            foreach($order->products as $product){
+                $product->find($product->id)->decrement('count',$product->pivot->count);
+            }
         }else{
             $confirmed_time = NULL;
         }
+        
         $order->update([
             'admin_id' => auth()->guard('admin')->user()->id,
             'status' => $request->status,
             'comment' => $request->comment,
             'confirmed_time' => $confirmed_time,
         ]);
+
         return redirect()->route('admin.order.index');
 
     }

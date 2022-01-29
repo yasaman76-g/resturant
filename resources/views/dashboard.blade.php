@@ -51,7 +51,7 @@
                                         <input type="hidden" value="{{ $product->img }}"  name="img">
                                         <input type="hidden" value="1" name="count">
                                         <div id="newsbtn">
-                                            <button class="btn btn-success" type="submit" @if (!auth()->user())
+                                            <button class="btn btn-success" type="submit" @if (!auth()->user() || $product->count == 0)
                                                 disabled
                                             @endif>سفارش دهید</button>
                                         </div>

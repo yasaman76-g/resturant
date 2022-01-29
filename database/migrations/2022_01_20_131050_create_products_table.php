@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('status')->default('on');
             $table->text('history')->nullable();
             $table->integer('time');
-            $table->integer('count');
+            $table->unsignedInteger('count');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

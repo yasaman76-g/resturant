@@ -16,6 +16,7 @@
                             <th>عنوان</th>
                             <th>تصویر</th>
                             <th>فعال/غیرفعال</th>
+                            <th>تعداد</th>
                             <th>ویرایش</th>
                             <th>حذف</th>
                         </tr>
@@ -37,6 +38,7 @@
                                     <label class="custom-control-label" for="customSwitch1"></label>
                                 </div>
                             </td>
+                            <td>{{ $product->count }}</td>
                             <td><a href="{{ route('admin.product.edit' , $product->id) }}" class="btn btn-primary btn-xs">
                                     <svg class="bi bi-pencil" width="1.2em" height="1.2em"
                                          viewBox="0 0 16 16" fill="currentColor"
